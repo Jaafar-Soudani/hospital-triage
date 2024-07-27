@@ -1,6 +1,18 @@
 
 
 ###
+Database connection credentials are in the dbCreds.json file (this file is .gitignored) following JSON formatting:
+```JS
+{
+    "host":"localhost",
+    "port" : 5432,
+    "db_name" : "project",
+    "db_username" : "postgres",
+    "db_password" : "postgres"
+}
+```
+The ``connectToDB.php`` uses this file to connect to the database. This file is included at the top of every DB-related server call. 
+
 Staff members are "hard-built" into the database. The database can be set/reset at anytime using the ``init.php`` functionality. 
 Condition severity is rated on a scale of 1-10 (1 for least urgent, 10 for most urgent). Wait time is approximated using this metric (time-to-treat (min)= 3 * condition-severity). 
 

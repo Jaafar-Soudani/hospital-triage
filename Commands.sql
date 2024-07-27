@@ -11,6 +11,7 @@ CREATE TABLE Patients (
 CREATE TABLE Staff (
     id INT AUTO_INCREMENT PRIMARY KEY,  -- Unique identifier for each staff member
     name VARCHAR(255) NOT NULL          -- Staff member's name
+    password VARCHAR(255) NOT NULL      -- (unsalted) Hash of the staff member's password
 );
 
 -- Insert a new patient into the Patients table

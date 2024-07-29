@@ -1,20 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<link rel="stylesheet" href="style.css">
+
 </head>
 <body>
-    <section>
-        <div class="form-value">
-            <form action="">
-                <h2>Welcome</h2>
-                <button>
-                    <a href="patient/patient_login.php">Patient Log in</a>
-                </button>
-                <button>
-                    <a href="staff/admin_login.php">Admin Log in</a>
-                </button>
-            </form>
-        </div>
-    </section>
+<nav>
+        <h2>Welcome</h2>
+        <form>
+            <input type="submit" name="action" value="Patient Log in" formaction="patient/patient_login.php">
+        </form>
+        <form>
+            <input type="submit" name="action" value="Admin Log in" formaction="staff/admin_login.php">
+        </form>
+    </nav>
 </body>
 </html>

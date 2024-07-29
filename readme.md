@@ -1,8 +1,6 @@
 
 
-###
-
-QUICK START: Configure dbCreds.json to your database server. Then Run Main.php to populate database with dummy patient and staff data.
+###QUICK START: Configure dbCreds.json to your database server. Then Run Main.php to populate database with dummy patient and staff data.
 
 Database connection credentials are in the dbCreds.json file (this file is .gitignored) following JSON formatting:
 ```JS

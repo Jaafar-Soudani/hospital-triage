@@ -1,9 +1,24 @@
 <?php
-$host = "localhost";
-$dbname = "postgres";
-$user = "postgres";
-$password = "admin";
+// connect to the database
+$filename = "../dbCreds.json";
+$file = fopen( $filename, "r" );
 
+if( $file == false ) {
+echo ( "Error in opening file" );
+exit();
+}
+
+$filesize = filesize( $filename );
+$filetext = fread( $file, $filesize );
+fclose( $file );
+
+$login_arr = json_decode($filetext, true);
+
+$host = $login_arr["host"];
+$port = $login_arr["port"];
+$dbname = $login_arr["db_name"];
+$user = $login_arr["db_username"];
+$password = $login_arr["db_password"];
 try {
     // Create a PostgreSQL database connection
     $conn = new PDO("pgsql:host=$host;dbname=$dbname", $user, $password);
@@ -50,6 +65,7 @@ try {
                 <th>Name</th>
                 <th>Condition Severity</th>
                 <th>Arrival Time</th>
+                <th>Code</th>
                 <th>Has Been Treated</th>
             </tr>
         </thead>
@@ -60,6 +76,7 @@ try {
                 <td><?php echo $patient['name']; ?></td>
                 <td><?php echo $patient['condition_severity']; ?></td>
                 <td><?php echo $patient['arrival_time']; ?></td>
+                <td><?php echo $patient['code']; ?></td>
                 <td><?php echo ($patient['is_treated']) ? 'Yes' : 'No'; ?></td>
             </tr>
             <?php endforeach; ?>

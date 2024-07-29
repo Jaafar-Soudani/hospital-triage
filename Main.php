@@ -13,6 +13,9 @@ try {
 
     $conn = new PDO("pgsql:host=$host;dbname=$dbname", $user, $password);
 
+    // Drop the hospitaldb schema if it exists, along with all its objects
+    $conn->exec("DROP SCHEMA IF EXISTS hospitaldb CASCADE;");
+
     // Creating Database if not already created
     $conn->exec("CREATE SCHEMA IF NOT EXISTS hospitaldb AUTHORIZATION postgres;");
 
@@ -30,7 +33,7 @@ try {
 
     CREATE TABLE IF NOT EXISTS staff (
         id SERIAL PRIMARY KEY,
-        name VARCHAR(255) NOT NULL,
+        name VARCHAR(255) NOT NULL UNIQUE,
         password VARCHAR(255) NOT NULL
     );";
 
@@ -46,6 +49,17 @@ try {
     ON CONFLICT (name) DO NOTHING;";
 
     $conn->exec($patients);
+
+    // Populating staff table
+    $staff = "INSERT INTO staff (name, password)
+    VALUES
+        ('John Smith', 'password123'),
+        ('Jane Doe', 'securepassword'),
+        ('Michael Johnson', 'admin123')
+    ON CONFLICT (name) DO NOTHING;";
+
+    $conn->exec($staff);
+
 
     echo "Database operations completed successfully!";
 } catch (PDOException $e) {

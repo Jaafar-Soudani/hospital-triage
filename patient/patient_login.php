@@ -34,7 +34,7 @@ try {
             $_SESSION['patient_is_treated'] = $patient['is_treated'];
 
             // Redirect to patient dashboard
-            header("Location: patient_dashboard.php");
+            header("Location: patient_index.php");
             exit;
         } else {
             $error = "Invalid patient name or code!";

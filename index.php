@@ -1,19 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
 </head>
 <body>
-    <form action="/admin_login.php">
-        <input type="text"> <!-- username -->
-        <input type="password"> <!-- password -->
-        <input type="submit">
-    </form>
-    <form action="/patient_login.php">
-        <input type="text"> <!-- 3 code -->
-        <input type="submit">
-    </form>
+    <section>
+        <div class="form-value">
+            <form action="">
+                <h2>Welcome</h2>
+                <button>
+                    <a href="patient/patient_login.php">Patient Log in</a>
+                </button>
+                <button>
+                    <a href="staff/admin_login.php">Admin Log in</a>
+                </button>
+            </form>
+        </div>
+    </section>
 </body>
 </html>

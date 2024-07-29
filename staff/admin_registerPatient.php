@@ -24,9 +24,8 @@ try {
     $conn = new PDO("pgsql:host=$host;dbname=$dbname", $user, $password);
 
     // Display a message if the connection is successful
-    echo "Connected successfully to the database.";
 } catch (PDOException $e) {
-    // Display an error message if the connection fails
+    // Display an error message if the connection fails 
     echo "Connection failed: " . $e->getMessage();
 }
 

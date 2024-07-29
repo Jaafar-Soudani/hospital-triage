@@ -8,10 +8,26 @@ if (!isset($_SESSION['admin_id'])) {
     exit;
 }
 
-$host = "localhost";
-$dbname = "postgres";
-$user = "postgres";
-$password = "admin";
+// connect to the database
+$filename = "../dbCreds.json";
+$file = fopen( $filename, "r" );
+
+if( $file == false ) {
+echo ( "Error in opening file" );
+exit();
+}
+
+$filesize = filesize( $filename );
+$filetext = fread( $file, $filesize );
+fclose( $file );
+
+$login_arr = json_decode($filetext, true);
+
+$host = $login_arr["host"];
+$port = $login_arr["port"];
+$dbname = $login_arr["db_name"];
+$user = $login_arr["db_username"];
+$password = $login_arr["db_password"];
 
 try {
     // Create a PostgreSQL database connection

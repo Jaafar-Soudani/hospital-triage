@@ -27,3 +27,16 @@ $conn = pg_connect("host=$host port=$port dbname=$db_name user=$db_username pass
   error_log("Connection failed: " . pg_last_error());
   exit();
 }
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <text>hello world</text>
+</body>
+</html>

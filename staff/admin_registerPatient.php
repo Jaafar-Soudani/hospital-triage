@@ -41,17 +41,21 @@ function generateCode() {
 // Handle form submission
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = $_POST["name"];
-    $condition_severity = $_POST["condition_severity"];
+    $condition_severity = intval($_POST["condition_severity"]);
     $code = generateCode();
 
-    $sql = "INSERT INTO Patients (name, condition_severity, code, arrival_time, is_treated)
-            VALUES ('$name', '$condition_severity', '$code', NOW(), FALSE)";
 
-    if ($conn->query($sql) === TRUE) {
-        echo "Patient registered successfully with code: " . $code;
+    $stmt = $conn->prepare("INSERT INTO hospitaldb.patient (name, condition_severity, code, arrival_time, is_treated) VALUES (:name, :condition_severity, :code, NOW(), FALSE)");
+    $stmt->bindParam(':name', $name);
+    $stmt->bindParam(':condition_severity', $condition_severity, PDO::PARAM_INT);
+    $stmt->bindParam(':code', $code);
+
+    if ($stmt->execute()) {
+        echo "Patient registered successfully with code: " . strval($code);
     } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
+        echo "Could not register patient. Error: " . $stmt->errorInfo()[2];
     }
+
 }
 
 $conn->close();

@@ -38,8 +38,10 @@ try {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Patient List</title>
+    <link rel="stylesheet" href="../style.css">
 </head>
 <body>
+    <div class="container">
     <h1>Patient List</h1>
     <table>
         <thead>
@@ -53,15 +55,20 @@ try {
         </thead>
         <tbody>
             <?php foreach ($patients as $patient): ?>
-                <tr>
-                    <td><?php echo $patient['id']; ?></td>
-                    <td><?php echo $patient['name']; ?></td>
-                    <td><?php echo $patient['condition_severity']; ?></td>
-                    <td><?php echo $patient['arrival_time']; ?></td>
-                    <td><?php echo ($patient['is_treated']) ? 'Yes' : 'No'; ?></td>
-                </tr>
+            <tr>
+                <td><?php echo $patient['id']; ?></td>
+                <td><?php echo $patient['name']; ?></td>
+                <td><?php echo $patient['condition_severity']; ?></td>
+                <td><?php echo $patient['arrival_time']; ?></td>
+                <td><?php echo ($patient['is_treated']) ? 'Yes' : 'No'; ?></td>
+            </tr>
             <?php endforeach; ?>
         </tbody>
     </table>
+    <form class="form-column">
+        <input type="submit" name="action" value="Return to Admin Menu" formaction="admin_index.php">
+    </form>
+    </div>
 </body>
 </html>
+

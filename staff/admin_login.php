@@ -32,7 +32,7 @@ try {
             $_SESSION['admin_name'] = $admin['name'];
 
             // Redirect to admin dashboard
-            header("Location: admin_dashboard.php");
+            header("Location: admin_index.php");
             exit;
         } else {
             $error = "Invalid admin credentials!";

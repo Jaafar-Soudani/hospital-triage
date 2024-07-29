@@ -2,16 +2,29 @@
 <html>
 <head>
     <title>Register Patient</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h2>Register Patient</h2>
-    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-        Patient Name: <input type="text" name="name" required><br><br>
-        Condition Severity (1-10): <input type="number" name="condition_severity" min="1" max="10" required><br><br>
-        <input type="submit" name="submit" value="Register">
-    </form>
+    <div class="container">
+        <h2>Register Patient</h2>
+        <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" class="form-column">
+            <div class="form-group">
+                <label for="name">Patient Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="condition_severity">Condition Severity (1-10):</label>
+                <input type="number" id="condition_severity" name="condition_severity" min="1" max="10" required>
+            </div>
+            <input type="submit" name="submit" value="Register">
+        </form>
+        <form class="form-column">
+            <input type="submit" name="action" value="Return to Admin Menu" formaction="admin_index.php">
+        </form>
+    </div>
 </body>
 </html>
+
 
 <?php
 $host = "localhost";

@@ -4,6 +4,7 @@
 
 CREATE SCHEMA IF NOT EXISTS hospitaldb
     AUTHORIZATION postgres;
+    
 SET search_path TO hospitaldb;
 
 CREATE TABLE patient (
@@ -42,17 +43,13 @@ FROM (
 ) AS SubQuery;
 
 
--- Insert a new patient into the patient table
-INSERT INTO patient (name, condition_severity, code)
-VALUES ('John Doe', 7, 'ABC');
-
-
 -- Select the next patient to treat based on highest condition severity and earliest arrival time
 SELECT code
 FROM patient
 WHERE is_treated = FALSE
 ORDER BY condition_severity DESC, arrival_time ASC
 LIMIT 1;
+
 -- Update the patient's is_treated status
 UPDATE patient
 SET is_treated = TRUE

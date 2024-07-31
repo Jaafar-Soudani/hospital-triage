@@ -29,6 +29,19 @@ Run `Main.php` to populate the database with dummy patient and staff data.
 ## Database Structure
 Staff members are “hard-built” into the database.
 
+DEFAULT PATIENTS:
+
+    ('John Doe', 7, 'ABC', NOW(), FALSE),
+    ('Ava Mac', 6, 'BCA', NOW(), FALSE),
+    ('Ryan Yi', 8, 'DAC', NOW(), FALSE)
+
+DEFAULT ADMINS/STAFF:
+
+    ('John Smith', 'password123'),
+    ('Jane Doe', 'securepassword'),
+    ('Michael Johnson', 'admin123')
+
+
 The database can be reset at any time by running `Main.php`.
 
 Condition severity is rated on a scale of 1-10 (1 for least urgent, 10 for most urgent).
@@ -36,12 +49,29 @@ Condition severity is rated on a scale of 1-10 (1 for least urgent, 10 for most 
 Wait time is approximated using the condition severity metric: `time-to-treat (min) = 3 * condition-severity`.
 
 ## Usage
+Users are prompted to login either as an Admin or Patient.
+![alt text](images/welcome.png)
+
+## Admin Login
+![alt text](images/admin_login.png)
+
+
+## Patient LOgin
+![alt text](images/patient_login.png)
+
 ### Admin View
 Staff members have access to the following functions:
 
 - `registerPatient`: Adds a new patient using their name (String) and condition severity (int 1-10). Returns a 3-letter code for patient sign-in.
+![alt text](images/register.png)
+
 - `treatNextPatient`: Sends the next patient in the queue to an ER for treatment using their 3-letter code.
+![alt text](images/next_patient.png)
+
 - `viewListPatient`: Shows the current queue and list of treated patients.
+![alt text](images/patient_list.png)
 
 ### Patient View
 - `getWaitTime`: Calculates and returns the approximate wait time based on the position in the wait list, given the patient’s 3-letter code.
+![alt text](images/patient_index.png)
+

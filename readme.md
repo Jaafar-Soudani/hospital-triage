@@ -32,7 +32,6 @@ The php server communicates with a locally hosted PostgreSQL database.
 Run `Main.php` to populate the database with dummy patient and staff data.
 
 ## Database Structure
-Staff members are “hard-built” into the database.
 
 DEFAULT PATIENTS:
 

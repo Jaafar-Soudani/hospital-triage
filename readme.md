@@ -2,6 +2,11 @@
 
 This application simulates a hospital triage system, allowing staff members to register and treat patients based on the severity of their conditions.
 
+## Architechture
+The app is hosted using a php server. The php server processes the request and returns an appropriate HTML file (with embdedded CSS/JS)
+The php server communicates with a locally hosted PostgreSQL database. 
+
+
 ## Features
 
 - Register new patients with their name and condition severity (1-10)
@@ -39,9 +44,21 @@ Wait time is approximated using the condition severity metric: `time-to-treat (m
 ### Admin View
 Staff members have access to the following functions:
 
+
 - `registerPatient`: Adds a new patient using their name (String) and condition severity (int 1-10). Returns a 3-letter code for patient sign-in.
 - `treatNextPatient`: Sends the next patient in the queue to an ER for treatment using their 3-letter code.
 - `viewListPatient`: Shows the current queue and list of treated patients.
 
-### Patient View
-- `getWaitTime`: Calculates and returns the approximate wait time based on the position in the wait list, given the patient’s 3-letter code.
+### Patient view:
+- ``getWaitTime``: calculates and returns the approximate wait time based on the position in the wait list given their 3-letter-code. 
+
+### Usage
+The app is accessed via the index.php file. This serves two HTML forms corresponding to each portal (patient/staff)
+[SCREENSHOT_INDEX]
+Upon successful sign-in, the patient ``patient/patient_index.php`` is shown information about their registry (wait time, condition severity, arrival time,..)
+[SCREENSHOT_INDEX_PATIENT]
+The staff view ``admin/admin_index.php`` presents staff membes with the three functionalities they need to perform (treatNextPatient, viewListPatient, registerPatient)
+[SCREENSHOT_INDEX_ADMIN]
+[SCREENSHOT_REGISTER]
+[SCREENSHOT_VIEW_LIST]
+[SCREENSHOT_NEXT_LIST]

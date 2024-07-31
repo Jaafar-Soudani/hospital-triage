@@ -82,3 +82,5 @@ Staff members have access to the following functions:
 
 ### Patient View
 - `getWaitTime`: Calculates and returns the approximate wait time based on the position in the wait list, given the patient’s 3-letter code.
+![alt text](images/patient_index.png)
+

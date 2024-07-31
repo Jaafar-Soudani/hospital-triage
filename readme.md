@@ -51,7 +51,11 @@ The database can be reset at any time by running `Main.php`.
 
 Condition severity is rated on a scale of 1-10 (1 for least urgent, 10 for most urgent).
 
-Wait time is approximated using the condition severity metric: `time-to-treat (min) = 3 * condition-severity`.
+Wait time is approximated using the condition severity metric: `// Calculate the approximate wait time based on patients in front and their condition severity
+    $avgWaitTime = 0;
+    foreach ($patientsInFront as $severity) {
+    $avgWaitTime += $severity * 3; // Assuming each severity level adds 3 minutes of wait time
+    }`.
 
 ## Usage
 Users are prompted to login either as an Admin or Patient.

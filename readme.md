@@ -2,6 +2,11 @@
 
 This application simulates a hospital triage system, allowing staff members to register and treat patients based on the severity of their conditions.
 
+## Architechture
+The app is hosted using a php server. The php server processes the request and returns an appropriate HTML file (with embdedded CSS/JS)
+The php server communicates with a locally hosted PostgreSQL database. 
+
+
 ## Features
 
 - Register new patients with their name and condition severity (1-10)
@@ -62,6 +67,7 @@ Users are prompted to login either as an Admin or Patient.
 ### Admin View
 Staff members have access to the following functions:
 
+
 - `registerPatient`: Adds a new patient using their name (String) and condition severity (int 1-10). Returns a 3-letter code for patient sign-in.
 ![alt text](images/register.png)
 
@@ -73,5 +79,3 @@ Staff members have access to the following functions:
 
 ### Patient View
 - `getWaitTime`: Calculates and returns the approximate wait time based on the position in the wait list, given the patient’s 3-letter code.
-![alt text](images/patient_index.png)
-

@@ -61,7 +61,7 @@ Users are prompted to login either as an Admin or Patient.
 ![alt text](images/admin_login.png)
 
 
-## Patient LOgin
+## Patient Login
 ![alt text](images/patient_login.png)
 
 ### Admin View
